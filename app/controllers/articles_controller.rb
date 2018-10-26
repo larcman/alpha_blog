@@ -10,9 +10,12 @@ class ArticlesController < ApplicationController
   end
   
   def create
+    # debugger
+    
     # This line prints the params as plain text
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
+    @article = User.first
     if @article.save
       flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)

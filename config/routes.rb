@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   
   resources :articles
+  
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]  # Option 1: Skip new action as it is defined above
+  post 'users', to: 'users#create'   # Option 2
 end

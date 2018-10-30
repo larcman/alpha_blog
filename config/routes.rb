@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   resources :users, except: [:new]  # Option 1: Skip new action as it is defined above
-  post 'users', to: 'users#create'   # Option 2
+  # post 'users', to: 'users#create'   # Option 2
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end

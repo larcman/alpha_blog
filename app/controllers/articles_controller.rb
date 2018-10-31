@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     # This line prints the params as plain text
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       puts "*** we are here!!"
       flash[:success] = "Article was successfully created"

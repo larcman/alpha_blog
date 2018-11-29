@@ -17,11 +17,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
-      puts "*** we are here!!"
       flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)
     else
-      puts "*** we are over here!!"
       render 'new'
     end
   end
@@ -52,7 +50,7 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
     def article_params
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, category_ids: [])
     end
     
   def require_same_user

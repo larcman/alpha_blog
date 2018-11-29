@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   
   def create
     # This line prints the params as plain text
-    render plain: params[:article].inspect
+    # render plain: params[:article].inspect
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
